@@ -34,15 +34,21 @@ function setNewGridSize () {
     const main_div_container = document.querySelector("#main-container")
     const main_div_height = main_div_container.offsetHeight
     // Remove grid
-    const elementsToRemove = document.querySelectorAll('.row-div');
+    const elementsToRemove = document.querySelectorAll('.row-div')
     elementsToRemove.forEach(element => {
         element.remove();
     });
     // Update new square size
-    console.log(main_div_height)
     let new_sq_size = (main_div_height / new_grid_size) - 2
-    console.log(new_sq_size)
     createGrid(new_grid_size, new_sq_size)
 }
 const grid_btn = document.querySelector("#set-grid")
 grid_btn.addEventListener("click", () => setNewGridSize())
+
+const clear_btn = document.querySelector("#clear")
+clear_btn.addEventListener("click", () => {
+    const all_grid = document.querySelectorAll('.color-sq-div')
+    all_grid.forEach((sq) => {
+        sq.setAttribute("class", "sq-div")
+    })
+})
