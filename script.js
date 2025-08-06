@@ -10,10 +10,18 @@ function createGrid () {
         main_div_container.appendChild(row_div)
         for (let col_idx = 0; col_idx < num_col; col_idx++) {
             const col_div = document.createElement("div")
-            col_div.setAttribute("class", "grid-div")
+            col_div.setAttribute("class", "sq-div")
+            col_div.setAttribute("id", `${row_idx}-${col_idx}-sq`)
             row_div.appendChild(col_div)
         }
         
     }
 }
 createGrid()
+function colorSquare (div) {
+    div.setAttribute("class", "color-sq-div")
+}
+const sq_divs = document.querySelectorAll(".sq-div")
+sq_divs.forEach((sq_div) => {
+            sq_div.addEventListener("mouseover", () => colorSquare(sq_div))
+        })
