@@ -1,5 +1,6 @@
 let grid_size = 16
 let sq_size = 40
+let num_color_sq = 0
 
 function createGrid (grid_size, sq_size) {
     const main_div_container = document.querySelector("#main-container")
@@ -31,6 +32,10 @@ function colorSquare (div) {
     div.setAttribute("class", "color-sq-div")
     const random_rgb_str = getRandomRgbColor()
     div.style.backgroundColor = random_rgb_str
+    num_color_sq++
+    if (num_color_sq < 10) {
+        div.style.opacity = num_color_sq / 10
+    }
 }
 
 function setNewGridSize () {
