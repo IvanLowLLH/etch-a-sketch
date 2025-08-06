@@ -32,9 +32,10 @@ function colorSquare (div) {
     div.setAttribute("class", "color-sq-div")
     const random_rgb_str = getRandomRgbColor()
     div.style.backgroundColor = random_rgb_str
-    num_color_sq++
+    
     if (num_color_sq < 10) {
         div.style.opacity = num_color_sq / 10
+        num_color_sq++
     }
 }
 
@@ -64,5 +65,8 @@ clear_btn.addEventListener("click", () => {
     const all_grid = document.querySelectorAll('.color-sq-div')
     all_grid.forEach((sq) => {
         sq.setAttribute("class", "sq-div")
+        sq.style.backgroundColor = "" // remove inline color
+        sq.style.opacity = ""         // remove inline opacity
     })
+    num_color_sq = 0
 })
