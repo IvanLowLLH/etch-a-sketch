@@ -20,8 +20,17 @@ function createGrid (grid_size, sq_size) {
     }
 }
 createGrid(grid_size, sq_size)
+
+function getRandomRgbColor() {
+  const r = Math.floor(Math.random() * 256); // Random number for Red (0-255)
+  const g = Math.floor(Math.random() * 256); // Random number for Green (0-255)
+  const b = Math.floor(Math.random() * 256); // Random number for Blue (0-255)
+  return `rgb(${r}, ${g}, ${b})`; // Return the color string in RGB format
+}
 function colorSquare (div) {
     div.setAttribute("class", "color-sq-div")
+    const random_rgb_str = getRandomRgbColor()
+    div.style.backgroundColor = random_rgb_str
 }
 
 function setNewGridSize () {
